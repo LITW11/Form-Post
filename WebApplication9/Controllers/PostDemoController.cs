@@ -21,5 +21,19 @@ namespace WebApplication9.Controllers
                 Value = value
             });
         }
+
+        public ActionResult HiddenDemo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PostHidden(string hiddenValue)
+        {
+            return View(new HiddenViewModel
+            {
+                Value = hiddenValue
+            });
+        }
     }
 }
