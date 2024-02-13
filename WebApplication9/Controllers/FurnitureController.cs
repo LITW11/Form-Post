@@ -33,6 +33,14 @@ namespace WebApplication9.Controllers
             db.Add(item);
             return Redirect("/furniture/index");
         }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            FurnitureDb db = new FurnitureDb(_connectionString);
+            db.Delete(id);
+            return Redirect("/furniture/index");
+        }
     }
 }
 
