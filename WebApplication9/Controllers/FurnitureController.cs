@@ -41,6 +41,30 @@ namespace WebApplication9.Controllers
             db.Delete(id);
             return Redirect("/furniture/index");
         }
+
+        public ActionResult Edit(int id)
+        {
+            FurnitureDb db = new FurnitureDb(_connectionString);
+            FurnitureItem item = db.GetById(id);
+
+            if(item == null)
+            {
+                return Redirect("/furniture/index");
+            }
+
+            return View(new EditFurnitureViewModel
+            {
+                FurnitureItem = item
+            });
+        }
+
+        [HttpPost]
+        public ActionResult Update(FurnitureItem item)
+        {
+            FurnitureDb db = new FurnitureDb(_connectionString);
+            db.Update(item);
+            return Redirect("/furniture/index");
+        }
     }
 }
 

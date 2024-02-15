@@ -1,0 +1,42 @@
+﻿@using WebApplication9.Models
+@model EditFurnitureViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="p-5 text-center bg-body-tertiary rounded-3">
+                <form method="post" action="/furniture/update">
+                    <div class="col-md-6 offset-md-3">
+                        <input type="text" value="@Model.FurnitureItem.Name" class="form-control" name="name" placeholder="Name" />
+                    </div>
+                    <div class="col-md-6 offset-md-3 mt-3">
+                        <input type="text" value="@Model.FurnitureItem.Color" class="form-control" name="color" placeholder="Color" />
+                    </div>
+                    <div class="col-md-6 offset-md-3 mt-3">
+                        <input type="text" value="@Model.FurnitureItem.Price" class="form-control" name="price" placeholder="Price" />
+                    </div>
+                    <div class="col-md-6 offset-md-3 mt-3">
+                        <input type="text" value="@Model.FurnitureItem.QuantityInStock" class="form-control" name="quantityinstock" placeholder="Quantity In Stock" />
+                    </div>
+                    <input type="hidden" name="id" value="@Model.FurnitureItem.Id" />
+                    <div class="col-md-6 offset-md-3 mt-3">
+                        <button class="btn btn-dark w-100">Update</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
